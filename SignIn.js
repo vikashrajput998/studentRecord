@@ -250,7 +250,7 @@ function SignIn(props) {
           justifyContent: 'center',
         }}>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate('')}
+          onPress={() => props.navigation.navigate('FormPage')}
           style={{
             width,
             height: height * 0.1,

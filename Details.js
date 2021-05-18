@@ -11,6 +11,7 @@ import {
   Image,
 } from 'react-native';
 import EntypoIcon from 'react-native-vector-icons/Feather';
+import SharedIcon from 'react-native-vector-icons/Entypo';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -48,7 +49,7 @@ const Details = props => {
   const Data = ({item, index}) => {
     console.log('item', item);
     return (
-      <TouchableOpacity onPress={() => props.navigation.navigate('')}>
+      <TouchableOpacity onPress={() => props.navigation.navigate('ProfilePage')}>
         <View style={styles.item}>
           <View style={styles.upView}>
             <Image
@@ -61,21 +62,44 @@ const Details = props => {
           </View>
 
           <View style={styles.viewType}>
-              <View style={styles.leftView}>
-                  <View styles={styles.ltView}></View>
+            <View style={styles.leftView}>
+              <Text style={styles.rateTextStyle}>Rate</Text>
+              <Text style={styles.rateTextStyle}>Info</Text>
+              <Text style={styles.rateTextStyle}>Male</Text>
+              <Text style={styles.chrgeTextStyle}>$25</Text>
+            </View>
+            <View style={styles.rightView}>
+              <View style={styles.rightIcon}>
+                <Text style={styles.info}>Subject Name</Text>
+                <SharedIcon
+                  name="check"
+                  style={{
+                    marginLeft: 5,
+                    fontSize: height * 0.03,
+                    color: 'black',
+                  }}
+                />
               </View>
-              <View style={styles.rightView}></View>
-
-
-
-
-
-            {/* <Text style={styles.info}>Name:</Text>
-            <Text style={styles.title}>{item.name}</Text>
-            <View style={styles.line}></View>
-            <Text style={styles.info}>Age:</Text>
-            <Text style={styles.ageType}>{item.age}</Text>
-            <View style={styles.line}></View> */}
+              <View style={styles.rightIcon}>
+                <Text style={styles.QualifInfo}>Qualification:</Text>
+                <Text style={styles.QualificationText}>12th</Text>
+              </View>
+              <View style={styles.rightIcon}>
+                <Text style={styles.QualifInfo}>Study Mode:</Text>
+                <Text style={styles.QualificationText}>Online</Text>
+              </View>
+              <View style={styles.shareIcon}>
+                <Text style={styles.info}></Text>
+                <EntypoIcon
+                  name="share"
+                  style={{
+                    marginLeft:5,
+                    fontSize: height * 0.04,
+                    color: 'black',
+                  }}
+                />
+              </View>
+            </View>
           </View>
         </View>
       </TouchableOpacity>
@@ -175,57 +199,107 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   title: {
-    // backgroundColor: 'pink',
+    backgroundColor: 'pink',
+    width: width * 0.55,
+    height: height * 0.04,
   },
   viewType: {
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
     width: width * 0.925,
     height: height * 0.18,
-    flexDirection:'row',
+    flexDirection: 'row',
     borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20
+    borderBottomRightRadius: 20,
   },
   leftView: {
-      width: width * 0.2,
-      height: height * 0.18,
-      backgroundColor:'pink',
-      borderBottomLeftRadius: 20,
-      flexDirection:'column'
-
+    width: width * 0.2,
+    height: height * 0.18,
+    backgroundColor: '#FF9800',
+    borderBottomLeftRadius: 20,
+    flexDirection: 'column',
+    // alignItems:'center'
   },
 
-  ltView: {
-      width: width * 0.5,
-      height: height * 0.2,
-      backgroundColor:'yellow',
-      alignSelf:'center'
+  rateTextStyle: {
+    marginTop: 5,
+    width: width * 0.17,
+    height: height * 0.037,
+    // backgroundColor: 'yellow',
+    alignSelf: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: 2,
+    // borderRadius: 5,
+    borderWidth: 1,
+  },
 
+  chrgeTextStyle: {
+    marginTop: 8,
+    width: width * 0.17,
+    height: height * 0.037,
+    // backgroundColor: 'yellow',
+    alignSelf: 'center',
+    fontSize: 20,
+    fontWeight: 'normal',
+    textAlign: 'center',
+    padding: 1,
   },
 
   rightView: {
     width: width * 0.725,
     height: height * 0.18,
-    backgroundColor:'white',
-    borderBottomRightRadius: 20
+    // backgroundColor: 'white',
+    borderBottomRightRadius: 20,
+    flexDirection: 'column',
+  },
 
-},
+  rightIcon: {
+    marginTop: 2,
+    marginLeft: 5,
+    width: width * 0.7,
+    height: height * 0.046,
+    // backgroundColor: 'yellow',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+
+  shareIcon: {
+    marginTop: -13,
+    marginLeft: 5,
+    width: width * 0.68,
+    height: height * 0.046,
+    // backgroundColor: 'yellow',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
 
   info: {
-    marginTop: 2,
-    fontSize: 15,
+    fontSize: 22,
     fontWeight: 'bold',
-    padding: 1,
+    // backgroundColor:'pink',
     color: 'red',
+    width: width * 0.58,
   },
-  line: {
-    width: width * 0.55,
-    height: height * 0.004,
-    backgroundColor: 'black',
-    alignSelf: 'center',
+
+  QualifInfo: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    //  backgroundColor:'pink',
+    color: 'red',
+    width: width * 0.37,
   },
+
+  QualificationText: {
+    fontWeight:'bold',
+    fontSize: 20,
+    
+
+  },
+
   ageType: {
     marginTop: 1,
-    // backgroundColor: 'pink',
+     backgroundColor: 'pink',
     width: width * 0.56,
     height: height * 0.04,
     fontSize: 22,
